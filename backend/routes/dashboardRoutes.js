@@ -8,9 +8,15 @@ const {
 
 const {
   protect,
+  authorize,
 } = require("../middlewares/authMiddleware");
 
 // Dashboard Route
-router.get("/", protect, getDashboardStats);
+router.get(
+  "/",
+  protect,
+  authorize("admin", "fleet_manager"),
+  getDashboardStats
+);
 
 module.exports = router;

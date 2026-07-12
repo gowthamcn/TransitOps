@@ -12,13 +12,14 @@ import {
 import DashboardCard from "./DashboardCard";
 import { getDashboardStats } from "../../services/dashboardService";
 
-const StatsGrid = () => {
+const StatsGrid = ({ filters }) => {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
+    console.log("Filters:", filters);
     const loadStats = async () => {
       try {
-        const data = await getDashboardStats();
+        const data = await getDashboardStats(filters);
         setStats(data);
       } catch (error) {
         console.error(error);
@@ -26,7 +27,7 @@ const StatsGrid = () => {
     };
 
     loadStats();
-  }, []);
+  }, [filters]);
 
   if (!stats) {
     return (
