@@ -395,43 +395,6 @@ JWT_SECRET=your_secret_key
 
 ---
 
-# 📸 Screenshots
-
-## Login
-
-> Add Screenshot Here
-
----
-
-## Dashboard
-
-> Add Screenshot Here
-
----
-
-## Vehicle Management
-
-> Add Screenshot Here
-
----
-
-## Driver Management
-
-> Add Screenshot Here
-
----
-
-## Trip Management
-
-> Add Screenshot Here
-
----
-
-## Reports
-
-> Add Screenshot Here
-
----
 
 # 🎯 Future Enhancements
 
