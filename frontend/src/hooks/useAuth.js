@@ -8,7 +8,7 @@ const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const login = async (email, password) => {
+  const login = async (email, password, rememberMe = true) => {
     setLoading(true);
     setError("");
 
@@ -23,7 +23,11 @@ const useAuth = () => {
         return null;
       }
 
-      saveUser(response.data.user, response.data.token);
+      saveUser(
+  response.data.user,
+  response.data.token,
+  rememberMe
+);
 
       return response;
     } catch (err) {

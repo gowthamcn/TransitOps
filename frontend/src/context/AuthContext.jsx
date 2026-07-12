@@ -6,19 +6,23 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser =
+  localStorage.getItem("user") ||
+  sessionStorage.getItem("user");
 
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
-  const login = (userData, token) => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    localStorage.setItem("token", token);
+  const login = (userData, token, remember = true) => {
+  const storage = remember ? localStorage : sessionStorage;
 
-    setUser(userData);
-  };
+  storage.setItem("user", JSON.stringify(userData));
+  storage.setItem("token", token);
+
+  setUser(userData);
+};
 
   const logout = () => {
     localStorage.removeItem("user");
